@@ -1,0 +1,48 @@
+﻿@rendermode InteractiveServer
+@inherits FluxorComponent
+@inject IState<SidebarState> State  
+@inject IDispatcher Dispatcher
+
+<div class="drawer sm:drawer-open">
+    <input type="checkbox" class="drawer-toggle"checked="@IsOpen" />
+    <div class="drawer-content">
+        @ChildContent
+    </div>
+    <div class="drawer-side">
+        <div class="drawer-overlay" @onclick="ToggleSidebar"/>
+        <div class="h-full w-20 p-2 flex flex-col items-center gap-4 bg-base-100 group data-[open]:w-52 data-[open]:gap-1" data-open="@IsOpen">
+            <NavLink href="" class="w-full btn btn-ghost group-data-[open]:justify-start" Match="NavLinkMatch.All">
+                <img src="youtube/icons/home.svg" />
+                <span class="text-xs">Home</span>
+            </NavLink>
+
+            <NavLink href="shorts" class="w-full btn btn-ghost group-data-[open]:justify-start">
+                <img src="youtube/icons/shorts.svg" />
+                <span class="text-xs">Shorts</span>
+            </NavLink>
+
+            <NavLink href="subs" class="w-full btn btn-ghost group-data-[open]:justify-start">
+                <img src="youtube/icons/subs.svg" />
+                <span class="text-xs">Subs</span>
+            </NavLink>
+
+            <NavLink href="profile" class="w-full btn btn-ghost group-data-[open]:justify-start">
+                <img src="youtube/icons/you.svg" />
+                <span class="text-xs">You</span>
+            </NavLink>
+        </div>
+    </div>
+</div>
+
+@code 
+{
+    [Parameter]
+    public RenderFragment ChildContent { get; set; } = default!;
+
+    public bool IsOpen => State.Value.IsOpen;
+
+    private void ToggleSidebar()
+    {
+        Dispatcher.Dispatch(new SidebarToggleIsOpenAction());
+    }
+}

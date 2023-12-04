@@ -1,0 +1,32 @@
+﻿@if (!string.IsNullOrEmpty(ImageUrl))
+{
+    <div class="avatar">
+        <div class="w-24 rounded-full @Class">
+            <img src="@ImageUrl" />
+        </div>
+    </div>
+}
+else if (!string.IsNullOrEmpty(Placeholder))
+{
+    <div role="button" class="avatar placeholder">
+        <div class="bg-neutral text-neutral-content rounded-full @Class">
+            <span class="text-xs">@Placeholder</span>
+        </div>
+    </div>
+}
+else
+{
+    throw new Exception("You must include an image url or a placeholder to make it work");
+}
+
+@code
+{
+    [Parameter]
+    public string Class { get; set; } = "w-8 h-8";
+    
+    [Parameter]
+    public string? Placeholder { get; set; }
+
+    [Parameter]
+    public string? ImageUrl { get; set; }
+}

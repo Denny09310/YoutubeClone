@@ -1,0 +1,31 @@
+﻿@rendermode InteractiveServer
+@inherits FluxorComponent
+@inject IState<SearchState> State
+@inject IDispatcher Dispatcher
+
+<div class="w-full max-w-md rounded-full join">
+    <InputText @bind-Value="@_query" @onkeyup="Search" class="w-full max-w-md input input-bordered join-item" />
+    <button type="button" class="btn join-item" @onclick="SearchInternal">
+        <i class="fa fa-search" />
+    </button>
+</div>
+
+@code 
+{
+    private string _query = string.Empty;
+
+    private void Search(KeyboardEventArgs e)
+    {
+        if (e.Key is not "Enter" or "NumPadEnter")
+        {
+            return;
+        }
+
+        SearchInternal();
+    }
+
+    private void SearchInternal()
+    {
+        Dispatcher.Dispatch(new SearchFetchResultAction(_query));
+    }
+}

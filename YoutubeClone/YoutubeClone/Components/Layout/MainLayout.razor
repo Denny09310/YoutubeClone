@@ -1,0 +1,16 @@
+﻿@inherits LayoutComponentBase
+
+<div class="h-full overflow-hidden">
+    <Header />
+    <Sidebar>
+        <main class="w-full overflow-y-auto pb-16 px-4">
+            @Body
+        </main>
+    </Sidebar>
+</div>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>

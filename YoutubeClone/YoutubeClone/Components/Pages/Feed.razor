@@ -1,0 +1,34 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@inherits FluxorComponent
+@inject IState<FeedState> State
+@inject IDispatcher Dispatcher
+
+<PageTitle>Feed</PageTitle>
+
+@if (State.Value.IsLoading)
+{
+    <em>Loading...</em>
+}
+else if (!string.IsNullOrEmpty(State.Value.ErrorMessage))
+{
+    <p>@State.Value.ErrorMessage</p>
+}
+else
+{
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        @foreach (var video in State.Value.ChannelVideos!.Items)
+        {
+            <VideoDisplay @key="video.Id.VideoId" Item="@video" />
+        }
+    </div>
+}
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        Dispatcher.Dispatch(new FeedFetchDataAction());
+        base.OnInitialized();
+    }
+}
