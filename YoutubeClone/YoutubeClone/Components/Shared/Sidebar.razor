@@ -5,9 +5,9 @@
 
 <div class="drawer sm:drawer-open">
     <input type="checkbox" class="drawer-toggle"checked="@IsOpen" />
-    <div class="drawer-content">
+    <main class="drawer-content @Class">
         @ChildContent
-    </div>
+    </main>
     <div class="drawer-side">
         <div class="drawer-overlay" @onclick="ToggleSidebar"/>
         <div class="h-full w-20 p-2 flex flex-col items-center gap-4 bg-base-100 group data-[open]:w-52 data-[open]:gap-1" data-open="@IsOpen">
@@ -38,6 +38,9 @@
 {
     [Parameter]
     public RenderFragment ChildContent { get; set; } = default!;
+
+    [Parameter]
+    public string? Class { get; set; }
 
     public bool IsOpen => State.Value.IsOpen;
 

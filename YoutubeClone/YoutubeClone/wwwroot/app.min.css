@@ -1617,6 +1617,35 @@ html {
   height: 100%;
 }
 
+.h-max {
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.h-\[calc\(100\%-theme\(\'height\.16\'\)\)\] {
+  height: calc(100% - 4rem);
+}
+
+.h-96 {
+  height: 24rem;
+}
+
+.h-\[90dvh\] {
+  height: 90dvh;
+}
+
+.h-\[95dvh\] {
+  height: 95dvh;
+}
+
+.h-\[92dvh\] {
+  height: 92dvh;
+}
+
+.h-\[93dvh\] {
+  height: 93dvh;
+}
+
 .w-20 {
   width: 5rem;
 }
@@ -1707,6 +1736,10 @@ html {
 
 .p-2 {
   padding: 0.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .px-4 {
@@ -1835,18 +1868,6 @@ h1:focus {
 @media (min-width: 768px) {
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .md\:data-\[open\]\:w-52[data-open] {
-    width: 13rem;
-  }
-
-  .md\:data-\[open\]\:gap-1[data-open] {
-    gap: 0.25rem;
-  }
-
-  .group[data-open] .md\:group-data-\[open\]\:justify-start {
-    justify-content: flex-start;
   }
 }
 
