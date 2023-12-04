@@ -9,4 +9,5 @@ public partial class Snippet
     public DateTimeOffset PublishedAt { get; set; }
     public Thumbnails Thumbnails { get; set; } = default!;
     public string Title { get; set; } = null!;
+    public string ChannelTitle { get; set; } = default!;
 }

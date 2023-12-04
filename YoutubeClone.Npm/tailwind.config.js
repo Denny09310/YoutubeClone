@@ -1,5 +1,6 @@
 import path from 'node:path'
 import daisyui from 'daisyui'
+import animate from 'tailwindcss-animate'
 
 const projectRoot = "../YoutubeClone/YoutubeClone"
 
@@ -9,5 +10,5 @@ module.exports = {
     theme: {
         extend: {},
     },
-    plugins: [daisyui],
+    plugins: [animate, daisyui],
 }

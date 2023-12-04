@@ -1,0 +1,17 @@
+﻿<div class="w-full gap-2 btn btn-ghost btn-sm justify-start @Class" @attributes="@AdditionalAttributes">
+    <i class="w-4 h-4 fa fa-@Icon" /> @Label
+</div>
+
+@code {
+    [Parameter]
+    public string? Class { get; set; }
+
+    [Parameter]
+    public string Icon { get; set; } = default!;
+
+    [Parameter]
+    public string Label { get; set; } = default!;
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> AdditionalAttributes { get; set; } = new();
+}

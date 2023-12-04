@@ -10,7 +10,7 @@
     </main>
     <div class="drawer-side">
         <div class="drawer-overlay" @onclick="ToggleSidebar"/>
-        <div class="h-full w-20 p-2 flex flex-col items-center gap-4 bg-base-100 group data-[open]:w-52 data-[open]:gap-1" data-open="@IsOpen">
+        <div class="h-full w-20 px-2 pt-2 flex flex-col items-center gap-4 bg-base-100 border-r-2 border-r-base-300 group data-[open]:w-52 data-[open]:gap-1" data-open="@IsOpen">
             <NavLink href="" class="w-full btn btn-ghost group-data-[open]:justify-start" Match="NavLinkMatch.All">
                 <img src="youtube/icons/home.svg" />
                 <span class="text-xs">Home</span>
@@ -30,6 +30,18 @@
                 <img src="youtube/icons/you.svg" />
                 <span class="text-xs">You</span>
             </NavLink>
+
+            <div class="w-full invisible animate-fill-both group-data-[open]:visible group-data-[open]:animate-in group-data-[open]:fade-in">
+
+                <div class="divider my-1" />
+
+                <div class="flex flex-col gap-2">
+                    <CategoryDisplay Label="New" Icon="star" />
+                    <CategoryDisplay Label="Coding" Icon="code" />
+                    <CategoryDisplay Label="Music" Icon="music" />
+                </div>
+
+            </div>
         </div>
     </div>
 </div>

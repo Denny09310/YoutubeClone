@@ -3,16 +3,22 @@
 @inject IDispatcher Dispatcher
 
 <header class="h-16 px-4 py-2 flex-none flex items-center justify-between gap-4 sm:justify-normal">
-    <button type="button" class="btn btn-circle btn-ghost" @onclick="ToggleSidebar">
-        <i class="fa fa-bars" />
-    </button>
+    <div class="inline-flex items-center gap-2">
+        <button type="button" class="btn btn-circle btn-ghost" @onclick="ToggleSidebar">
+            <i class="fa fa-bars" />
+        </button>
+
+        <NavLink href="" Match="NavLinkMatch.All" class="block sm:hidden">
+            <img src="images/logo.svg" class="h-4" />
+        </NavLink>
+    </div>
 
     <NavLink href="" Match="NavLinkMatch.All" class="hidden sm:block">
         <img src="images/logo.svg" class="h-6" />
     </NavLink>
 
     <div class="hidden flex-1 flex items-center justify-center sm:flex">
-       <Searchbar />
+        <Searchbar />
     </div>
 
     <div class="flex-none flex items-center justify-center gap-2">

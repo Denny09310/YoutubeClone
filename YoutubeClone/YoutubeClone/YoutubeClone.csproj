@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Blazored.SessionStorage" Version="2.4.0" />
     <PackageReference Include="Fluxor.Blazor.Web.ReduxDevTools" Version="5.9.1" />
     <PackageReference Include="Fluxor.Persist" Version="2.5.3" />
     <PackageReference Include="Refit.HttpClientFactory" Version="7.0.0" />
